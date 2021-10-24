@@ -11,15 +11,21 @@ int main()
     float x_k = 6.5;
     float x_step = 0.6;
     float y;
-    for (float i = x_n; i <= 5; i = i + x_step)
+    for (float i = x_n; i < x_k; i = i + x_step)
     {
-        y = (pow(a+b*i, 2.5))/1.8 + pow(cos(a*i), 3);
-        cout << "f(" << i << ") = " << y << endl;
-    }
-    for (float i = x_n; i > 5; i = i + x_step)
-    {
+        if (i > 5)
+        {
         y = (pow(log10(pow(a, 2)+i), 2))/pow(a+i, 2);
         cout << "f(" << i << ") = " << y << endl;
+        }
+    }
+    for (float i = x_n; i <= x_k; i = i + x_step)
+    {
+        if (i >= 5)
+        {
+            y = (pow(a+b*i, 2.5))/1.8 + pow(cos(a*i), 3);
+            cout << "f(" << i << ") = " << y << endl;
+        }
     }
 
     return 0;
