@@ -40,6 +40,10 @@ case 2:
     cout<<"x * y = "<<proisvedenie(x,y)<<endl;
     break;
 case 3:
+        if (y==0){
+        cout<<"y=0, try again"<<endl;
+        return 0;
+    }
     cout<<"x / y = "<<delenie(x,y)<<endl;
     break;
 case 4:
