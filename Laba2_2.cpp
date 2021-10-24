@@ -6,10 +6,10 @@ using namespace std;
 //Задание 2.
 
 int perimetr (int, int, int, int);
-double perimetr (double, double);
+float perimetr (float, float);
 int perimetr (int);
-double square (double, double, double);
-double square (double, double);
+float square (float, float, float);
+float square (float, float);
 int square (int);
 
 int main()
@@ -53,17 +53,17 @@ int perimetr (int e)
     return e+e+e+e;
 }
 
-double perimetr (double r, double pi)
+float perimetr (float r, float pi)
 {
     return r*2*pi;
 }
 
-double square (double a, double b, double h)
+float square (float a, float b, float h)
 {
     return ((a+b)/2)*h;
 }
 
-double square (double r, double pi)
+float square (float r, float pi)
 {
     return (r*r)*pi;
 }
