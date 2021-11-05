@@ -11,17 +11,19 @@ int main()
     float y;
     float s;
     float m;
-    for (int i = 0; i <= 5; i++)
+    for (int i = 0; i < 5; i++)
     {
-        s = pow(a + b * arr[i], 2.5);
+        if (arr[i] > 5)
+        {s = pow(a + b * arr[i], 2.5);
         m = cos(a * arr[i]);
-        cout << "f(" << arr[i] << ") = " << s / 1.8 + pow(m, 3) << endl;
+        cout << "f(" << arr[i] << ") = " << s / 1.8 + pow(m, 3) << endl;}
     }
-    for (int i = 0; i > 5; i++)
+    for (int i = 0; i < 5; i++)
     {
-        s = pow(log10(pow(a, 2) + arr[i]), 2);
+        if (arr[i] >= 5)
+        {s = pow(log10(pow(a, 2) + arr[i]), 2);
         m = pow(a + arr[i], 2);
-        cout << "f(" << arr[i] << ") = " << s / m << endl;
+        cout << "f(" << arr[i] << ") = " << s / m << endl;}
     }
     return 0;
 }
