@@ -268,38 +268,35 @@
 //	return 0;
 //}
 // 7 --------------------------------------------------------------------------------------------------
-// #include<iostream>
-// #include<cmath>
-// using namespace std;
+#include<iostream>
+using namespace std;
 
-// void main()
-// {
-// 	setlocale(LC_ALL, "Russian");
-// 	int i, j, Rows, Cols;
-// 	const int line;
-// 	const int colume;
+
+void main()
+{
+	setlocale(LC_ALL, "ru");
+	int height, length,i,n;
+	char sim;
+
+
+
+	cout << "Введите высоту :" << endl;
+	cin >> height;
+	cout << "Введите длину :" << endl;
+	cin >> length;
+	cout << "Введите символ :" << endl;
+	cin >> sim;
 	
-// 	char arr[line][colume];
+	n = height * length;
 
-// 	cout << "Введите размер массива : ";
-// 	cin >> line;
-// 	cin >> colume;
+	for (i = 0; i < height; i++)
+	{
 
-// 	for (int i = 0; i < Rows; i++)
-// 	{
-// 		for  (int j = 0; j < Cols; j++)
-// 		{
-// 			arr[i][j] = rand() % 10;
-// 		}
-// 	}
-	
-// 	for ( int i = 0; i < Rows; i++)
-// 	{
-// 		for (int j = 0; j < Cols; j++)
-// 		{
-// 			cout << arr[i][j] << "\t";
-// 		}
+		for (int j = 0; j < length; j++)
+		{
+			cout << sim;
+		}
 
-// 		cout << endl;// перехлд на след строчку
-// 	}
-// }
+		cout << endl;
+	}
+}
