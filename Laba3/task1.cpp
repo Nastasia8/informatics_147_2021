@@ -3,10 +3,10 @@
 
 using namespace std;
 
-double Sum(double, double);
-double Proiz(double, double);
-double Del(double, double);
-double Subtr(double, double);
+float Sum(float, float);
+float Proiz(float, float);
+float Del(float, float);
+float Subtr(float, float);
 
 int main()
 {
@@ -37,31 +37,37 @@ int main()
         cout << x << "-" << y << "=" << Subtr(x, y) << endl;
         break;
     default:
+    cout << "Вы выбрали несуществующую операцию\n";
         break;
     }
     return 0;
 }
 
 // Сумма
-double Sum(double x, double y)
+float Sum(float x, float y)
 {
     return x + y;
 }
 
 // Произведение
-double Proiz(double x, double y)
+float Proiz(float x, float y)
 {
     return x * y;
 }
 
 // Деление
-double Del(double x, double y)
-{
+float Del(float x, float y)
+{ 
+    if (y == 0){
+    cout << "Делить на ноль нельзя\n";
+    return false;
+}else{
     return x / y;
+}
 }
 
 // Вычитание
-double Subtr(double x, double y)
+float Subtr(float x, float y)
 {
     return x - y;
 }
