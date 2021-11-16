@@ -6,45 +6,39 @@
 
 using namespace std;
 
-float CalcDiscriminant(float x, float y, float z)
+double CalcDiscriminant(double x, double y, double z)
 {
-    return pow(x, 2) - 4 * x * z;
+    return y * y - 4.0 * x * z;
 }
 
-void CalcRoot(float x, float y, float z)
+void CalcRoots(double x, double y, double z)
 {
-    float D;
-    D = CalcDiscriminant(x, y, z);
-    if (D < 0)
+    double d = CalcDiscriminant(x, y, z);
+    if (d < 0)
     {
-        cout << "Корней не существует" << endl;
+        cout << "No roots" << endl;
+        return;
     }
-    else if (D == 0)
+    if (d == 0)
     {
-        cout << "Корень равен " << -1 * y / (2 * x) << endl;
+        cout << "One root is " << -y / (2.0 * x) << endl;
+        return;
     }
-    else
-    {
-        cout << "Первый корень равен " << (-1 * y + sqrt(D)) / (2 * x) << endl;
-        cout << "Второй корень равен " << (-1 * y - sqrt(D)) / (2 * x) << endl;
-    }
+    cout << "First root is " << (-y + sqrt(d)) / (2.0 * x) << endl;
+    cout << "Second root is " << (-y - sqrt(d)) / (2.0 * x) << endl;
 }
 
 int main()
 {
-    //float x, y, z;
-    //cout << "Введите x, y, z" << endl;
-    //cin >> x >> y >> z;
-    //CalcRoot(x, y, z);
-    int begin_a = 3;
-    int begin_b = 12;
-    int sum1 = 0;
-    while (begin_a < begin_b)
-    {
-        sum1 += (begin_a % 2 == 0) ? begin_a : 0;
-        begin_a += 1;
-    }
-    cout << sum1 << endl;
+    double x, y, z;
+    cout << "Enter x, y, z " << endl;
+    cout << "x = ";
+    cin >> x;
+    cout << "y = ";
+    cin >> y;
+    cout << "z = ";
+    cin >> z;
+    CalcRoots(x, y, z);
     return 0;
 }
 
