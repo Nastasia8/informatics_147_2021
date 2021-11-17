@@ -20,13 +20,22 @@ int main()
             cout << x << " * " << y << " = " << x * y <<endl;
             break;
         case 3:
-            cout << x << " / " << y << " = " << x / y <<endl;
-            break;
+            if (y != 0)
+            {
+                cout << x << " / " << y << " = " << x / y <<endl;
+                break;}
+            else 
+            {
+                cout << " Error y = 0" << endl;
+                break;}
         case 4:
             cout << x << " - " << y << " = " << x - y <<endl;
             break;
         case 5:
             cout << x << " ^ " << y << " = " << pow (x , y) <<endl;
+            break;
+        default:
+            cout << "Another number entered " << endl;
             break;
     }
     return 0;
