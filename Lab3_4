@@ -23,4 +23,5 @@ int main()
     cout << "Введите два числа, сначала меньшее, затем большее" << endl;
     cin >> a >> b;
     calculateSum(a,b);
+    return 0;
 }
