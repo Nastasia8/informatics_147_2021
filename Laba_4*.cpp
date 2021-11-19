@@ -4,6 +4,7 @@
 using namespace std;
 float func(float,float);
 
+//Локализация корня
 
 int main()
 {
