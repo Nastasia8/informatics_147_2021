@@ -26,23 +26,27 @@ using namespace std;
 //}
 //////////////////////////////////////	 2	////////////////////////////////
 
-//void uou(float a, float b)
-//{
-//	double x;
-//
-//	cout << a << "\t" << b << endl;
-//
-//	x = a;
-//	a = b;
-//	b = x;
-//
-//	cout << a << "\t" << b << endl;
-//}
-//
-//void main()
-//{
-//	uou(25.8, 87.5);
-//}
+// void uou(double *pa, double *pb)
+// {
+// 	double x;
+
+// 	x = *pa;
+// 	*pa = *pb;
+// 	*pb = x;
+// }
+
+// void main()
+// {
+// 	double a = 25.8;
+// 	double b = 87.5;
+
+// 	cout << a << ";  " << b << "\t";
+
+// 	uou(&a, &b);
+
+// 	cout << a << ";  " << b << endl;
+
+// }
 //////////////////////////////////////	 3	////////////////////////////////
 
 //void main()
