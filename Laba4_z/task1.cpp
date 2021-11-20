@@ -12,25 +12,6 @@ bool znak (float y){
     else return true;
 
 }
-float check(float x1, float x2)
-{
-    if (x1 < x2)
-    {
-        return x1, x2;
-    }
-    else if (x1 > x2)
-    {
-        float m = x2;
-        x2 = x1;
-        x1 = m;
-        return x1, x2;
-    }
-    else
-    {
-        cout << "Нет отрезка" << endl;
-    }
-    return 0;
-}
 
 int main()
 {
@@ -38,7 +19,22 @@ int main()
     int count = 1;
     cout << "Введите отрезок [x1, x2] через пробел: ";
     cin >> x1 >> x2;
-    check(x1, x2); // проверка на отрезок
+    if (x1 < x2) // проверка на отрезок
+    {
+        cout <<"Ваш отрезок: ["<< x1 << ','<<x2<<"]\n";
+    }
+    else if (x1 > x2)
+    {
+        float m = x2;
+        x2 = x1;
+        x1 = m;
+        cout <<"Ваш отрезок: ["<< x1 << ','<<x2<<"]\n";
+    }
+    else
+    {
+        cout << "Нет отрезка" << endl;
+        return 0;
+    } 
     cout << "Введите шаг: ";
     cin >> step;
     int num = abs((abs(x1) - abs(x2))/step);
