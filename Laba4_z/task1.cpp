@@ -14,7 +14,7 @@ bool znak (float y){
 }
 
 int main()
-{
+{ //1 Этап
     float x1 = 0, x2 = 0, res, step, y, x, a, b, c;
     int count = 1;
     cout << "Введите отрезок [x1, x2] через пробел: ";
@@ -41,6 +41,7 @@ int main()
     for (float i = x1; i <= x2; i+=step){
         cout << i << "\t-\t" << func(i)<<endl;
     }
+    // 2 этап 
         y = func(x1);
         znak(y);
         if (znak(y) == true)
