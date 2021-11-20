@@ -2,9 +2,8 @@
 #include <cmath>
 
 using namespace std;
-float func(float,float);
+float func(float);
 
-//Локализация корня
 
 int main()
 {
@@ -15,13 +14,13 @@ int main()
     
     for (float i = x_nach; i <= x_kon; i += step)
     {
-        y1 = func(i, y);
+        y1 = func(i);
         printf("%g \t %g \n",i,y1);
     }
 
     for (float i = x_nach; i <= x_kon; i += step)
     {
-        y1 = func(i, y);
+        y1 = func(i);
         if ( (y1 > 0 and y < 0) or (y1 < 0 and y > 0) )
         {
             a = b; 
@@ -39,24 +38,23 @@ int main()
     {
         c = (a + b)/2;
         E = b-a;
-        printf("%g\t %g\t %g\t %g\t %g\t %g\t %g\n", a,b,c,(b-a),func(a,y), func(c,y), func(a,y)*func(c,y));
-        if (func(a,y)*func(c,y) < 0)
+        printf("%g\t %g\t %g\t %g\t %g\t %g\t %g\n", a,b,c,(b-a),func(a), func(c), func(a)*func(c));
+        if (func(a)*func(c) < 0)
         {
             b = c;
         }
-        else if (func(a,y)*func(c,y) > 0)
+        else 
         {
             a = c;
         }        
     }
 
-    cout << endl << "c = " << c << endl;
+    cout << endl << " c = " << c << endl;
 
     return 0;
 }       
 
-float func(float x, float y)
+float func(float x)
 {
-    y = pow(x , 5) - x - 0.2;
-    return y;
+    return pow(x , 5) - x - 0.2;
 }
