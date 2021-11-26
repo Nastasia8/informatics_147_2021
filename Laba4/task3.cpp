@@ -6,7 +6,7 @@ using namespace std;
 int main(){
     int n;
     srand(time (NULL));
-cout <<"Введите размер массива"<<endl;
+cout <<"Введите размер массива: ";
 cin >> n;
 int *array = new int [n];
 for (int i = 0; i < n; i++){
@@ -17,7 +17,6 @@ for (int i =0; i<n; i++){
 }
 int m = array[0];
 for (int i = 0; i < n; i++){
-    array[i] = rand()%25;
     if (array[i] < m){
         m=array[i];
     }
