@@ -5,9 +5,9 @@
 //2 способ построения треугольника с циклом while
 using namespace std;
 
-int main (){
-    int i =0;
-    while( i < 4){
+void Func(int n){
+    int i = 0;
+    while(i < n){
         int j =0;
         while (j <= i){
             cout <<'@';
@@ -30,7 +30,7 @@ int main (){
 
     cout << endl;
     int d=0;
-    i = 4;
+    i = n;
     while (i > 0){
         int j=0;
         while(j < i-1){
@@ -48,9 +48,9 @@ int main (){
     }
     
     cout << endl;
-    d=4;
+    d=n;
     
-    while(i < 4){
+    while(i < n){
         int j =0;
         while(j < i){
             cout << ' ';
@@ -65,6 +65,12 @@ int main (){
         cout << endl;
         i++;
     }
-    cout << endl;
+}
+
+int main (){
+    int n;
+    cout << "Введите высоту треугольника: ";
+    cin >> n;
+    Func(n);
     return 0;
 }
