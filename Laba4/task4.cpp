@@ -1,3 +1,4 @@
+/*Задание 4*/
 #include <iostream>
 #include <cmath>
 #include <ctime>

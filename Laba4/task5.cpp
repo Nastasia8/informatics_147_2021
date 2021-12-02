@@ -1,18 +1,19 @@
+/*Задание 5*/
 #include <iostream>
 using namespace std;
-// Найти максимальные значения в каждой строке двумерного массива
+// Найти минимальные значения в каждой строке двумерного массива
 // И написать в отдельный одномерный массив
-void FindMax(int** arr, int rows, int cols, int* _arMax){
+void FindMax(int** arr, int rows, int cols, int* _arMin){
     for (int i = 0; i < rows; i++){
-        int max = -100;
+        int min = 100;
         for (int j = 0; j < cols; j++){
-            if (arr[i][j] > max) max = arr[i][j];
+            if (arr[i][j] < min) min = arr[i][j];
         }
-    _arMax[i] = max;
+    _arMin[i] = min;
     }
-    cout << "Максимальные значения: ";
+    cout << "Минимальные значения: ";
     for (int i = 0; i < rows; i++){
-        cout << _arMax[i] << '\t';
+        cout << _arMin[i] << ' ';
     }
     cout << endl;
 }
