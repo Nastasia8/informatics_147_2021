@@ -6,7 +6,7 @@ using namespace std;
 // нахождение наибольшего общего делителя
 int NOD(int x, int y){
     int res = 0;
-    for (int i = 2; i < x+y; i++){
+    for (int i = 2; i < 1000; i++){
         if (x % i == 0 && y % i == 0){
             res = i;
         }
@@ -22,7 +22,7 @@ int main (){
     else;
     int n; 
     int arr[k];
-    int arr_1[k];
+    int arr_1[k-1];
     cout << "Введите "<< k<<" положительных чисел: ";
     for (int i = 0; i < k; i++){
             cin >> n;
@@ -36,10 +36,11 @@ int main (){
     for (int i = 1; i < k; i++){
         arr_1[i-1] = NOD(arr[i-1], arr[i]);
     }
-    int resNOD = arr_1[0];
-    for (int i = 1; i < k; i++){
-        if (resNOD == arr_1[i]) 
+    int resNOD=0;
+    for (int i = 1; i < k-1; i++){
+        if (arr_1[i-1] == arr_1[i]) 
             resNOD = arr_1[i];
+            else resNOD = 0;
     }
     cout <<"НОД = "<<resNOD<<endl;
     return 0;

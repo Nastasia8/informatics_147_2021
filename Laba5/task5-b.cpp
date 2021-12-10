@@ -74,9 +74,9 @@ int main (){
             }
         }
     }
-    // Процесс очистки чисел ("мусора") в массиве ↓↓↓
+
     int result=1;
-        for(int i = 0; i < 11; i++){
+        for(int i = 0; i < 2; i++){
             result *= NOD(Array_res[i], Array[i]);
         }
     cout << "НОД = "<<result<<endl;
