@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    int stolbec; int strok; int minimal = 9999999; int n = 1; int maximal = 0;
+    int stolbec; int strok; int minimal = INT_MAX; int n = 1; int maximal = INT_MIN;
     cout << "Enter stroki and stolbtsy of array ";
     cin >> strok >> stolbec ;
     int array [strok] [stolbec];
