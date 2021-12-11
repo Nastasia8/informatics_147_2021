@@ -3,7 +3,6 @@
 // Программа отображает треугольник из чисел. Высота треугольника задаётся пользователем.
 
 #include <iostream>
-#include <iomanip>
 
 using namespace std;
 
