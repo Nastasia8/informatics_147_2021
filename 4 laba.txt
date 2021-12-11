@@ -1,0 +1,173 @@
+4 лаба.
+1.#include <iostream>
+
+using namespace std;
+
+void simpleFunction(int* a, int* b, int* c){
+    *a = 2;
+    *b = 3;
+    *c = 4;
+}
+
+int main() {
+    int a = 1, b = 2, c = 3;
+    int* aPtr = &a;
+    int* bPtr = &b;
+    int* cPtr = &c;
+    simpleFunction(aPtr, bPtr, cPtr);
+    
+    cout << a << ' ' << b << ' ' << c;
+}
+2.#include <iostream>
+
+using namespace std;
+
+void swap(double* a, double* b){
+    double tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
+int main() {
+    double a = 1.5, b = 2.4;
+    double* aPtr = &a;
+    double* bPtr = &b;
+
+    swap(aPtr, bPtr);
+
+    cout << a << ' ' << b;
+}
+3.#include <iostream>
+#include <random>
+
+using namespace std;
+
+int main() {
+    srand(time(0));
+
+    int size;
+
+    cin >> size;
+
+    int* array = new int[size];
+
+    int min;
+    for(int i = 0; i < size; i++){
+        array[i] = rand();
+        if(i == 0)
+            min = array[i];
+        else if(min > array[i])
+            min = array[i];
+        cout << array[i] << ' ';
+    }
+
+    cout << endl << min;
+
+}
+4.#include <iostream>
+#include <random>
+
+using namespace std;
+
+#include <iostream>
+#include <random>
+
+using namespace std;
+
+void fillArray(int* array, int size){
+    for(int i = 0; i < size; i++){
+        array[i] = rand();
+    }
+}
+
+void show(int* array, int size){
+    for(int i = 0; i < size; i++){
+        cout << array[i] << ' ';
+    }
+    cout << endl;
+}
+
+int minElem(int* array, int size){
+    int min = array[0];
+    for(int i = 0; i < size; i++){
+        if(min > array[i])
+            min = array[i];
+    }
+    return min;
+}
+
+int main() {
+    srand(time(0));
+
+    int size;
+
+    cin >> size;
+
+    int* array = new int[size];
+
+    fillArray(array, size);
+
+    show(array, size);
+
+    int res = minElem(array, size);
+
+    cout << res;
+
+}
+5.#include <iostream>
+
+using namespace std;
+
+
+void findMin(int** array, int rows, int cols, int* minElems){
+    for(int i = 0; i < rows; i++){
+        int min = array[i][0];
+        for(int j = 0; j < cols; j++){
+            if(min > array[i][j])
+                min = array[i][j];
+        }
+        minElems[i] = min;
+    }
+}
+
+int main() {
+
+    srand(time(0));
+
+
+    //CREATING ARRAY
+    int rows,cols;
+    cin >> rows >> cols;
+    int** array = new int*[rows];
+
+    for(int i = 0; i < rows; i++){
+        array[i] = new int[cols];
+    }
+
+
+    //ARRAY FILLING
+    for(int i = 0; i < rows; i++){
+        for(int j = 0; j < cols; j++){
+            array[i][j] = rand() % 100 + 1;
+        }
+    }
+
+
+    //ARRAY PRINTING
+    for(int i = 0; i < rows; i++){
+        for(int j = 0; j < cols; j++){
+            cout << array[i][j] << ' ';
+        }
+        cout << endl;
+    }
+
+    int* minElems = new int[rows];
+    findMin(array, rows, cols, minElems);
+
+    for(int i = 0; i < rows; i++){
+        cout << "Min element in row num " << i << " is " << minElems[i] << endl;
+    }
+    delete[] minElems;
+
+    delete[] array;
+}

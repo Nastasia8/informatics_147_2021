@@ -1,0 +1,105 @@
+1.#include <iostream>
+
+using namespace std;
+
+void qwe ()
+{
+    int arr[]={0,3,5,0,0,0,0,0,0,0,0,0,0,0,0};
+        for (int i = 3; i < 15; i++)
+        {
+            arr[i]=arr[i-1]+arr[i-2]+arr[i-3];
+        }
+        for (int i = 0; i < 15; i++)
+        {
+            cout << arr[i] << " ";
+        }
+}
+
+int main()
+{
+    qwe();
+}
+
+3.#include <iostream>
+
+using namespace std;
+
+void qwe(int x, int y)
+{
+    while (true)
+    {
+    int z;
+    if(x > y)
+    {
+        z = x-y;
+        while(z != 0)
+        {
+            x = y;
+            y = z;
+
+            if(x < y){
+                int t = x;
+                x = y;
+                y = t;
+            }
+            z = x-y;
+        }
+        cout << "NOD = " << x;
+        return;
+    }
+    else {
+        z = x;
+        x = y;
+        y = z;
+    }
+    }
+
+}
+
+int main(){
+    qwe(15,25);
+}
+
+4.#include <iostream>
+
+using namespace std;
+
+int NOD(int x, int y)
+{
+    while (true)
+    {
+    int z;
+    if(x > y)
+    {
+        z = x-y;
+        while(z != 0)
+        {
+            x = y;
+            y = z;
+
+            if(x < y){
+                int t = x;
+                x = y;
+                y = t;
+            }
+            z = x-y;
+        }
+        return x;
+    }
+    else {
+        z = x;
+        x = y;
+        y = z;
+    }
+    }
+
+}
+
+int NOK(int x, int y)
+{
+    return (x*y)/NOD(x,y);
+}
+
+int main(){
+    cout << NOK(15,10);
+}

@@ -1,0 +1,77 @@
+2 лаба. Задание 1.
+#include <iostream>
+#include <cmath>
+using namespace std;
+void kol(float x, float y, float z,float& kx, float& ky, float& kz)
+{
+    float k =sqrt( 1 / (x * x + y * y + z * z));
+    kx = x * k;
+    ky = y * k;
+    kz = z * k;
+}
+int main()
+{
+    float x = 1,y=5,z=3;
+    float dl = sqrt(x * x + y * y + z * z);
+    float kx=0, ky = 0, kz = 0;
+    cout << "Длина вектора:" << dl << endl;
+    kol(x,y,z,kx, ky, kz);
+    cout << "Координаты кол. вектора:" << kx<<" "<< ky << " " << kz << endl;
+    float sx, sy, sz;
+    cout <<"Вектор для произведения:" << endl;
+    cin >> sx >> sy >> sz;
+    float ab = x*sx+y*sy+z*sz;
+    float cosa=ab/(sqrt(x*x+y*y+z*z) * sqrt(sx*sx+sy*sy+sz*sz));
+    cout << "Скалярное произведение:" <<ab*cosa<<endl;
+    float vpx=y*sz-sy*z;
+    float vpy=sx*z-x*sz;
+    float vpz=x*sy-sx*y;
+    cout << "Векторное произведение:" << vpx <<" "<< vpy <<" "<< vpz <<endl;
+    
+}
+2 лаба. Задание 2.
+#include <iostream>
+#include <cmath>
+using namespace std;
+const float PI = 3.14;
+float Perimetr(float a, float b, float c, float d)
+{
+    return a + b + c +d;
+}
+float Perimetr(float r)
+{
+    cout << 2*PI*r;
+}
+float Perimetr(float a, float b)
+{
+   return 2*(a+b); 
+}
+float square(float a, float b, float c, float d)
+{
+    return (a+b)/2*sqrt(c*c-pow((pow((b-a),2)+c*c-d*d)/(2*(a*b)),2));
+}
+float square(float r)
+{
+    return PI*r*r;
+}
+float square (float a, float b)
+{
+    return a*b;
+}
+int main()
+{
+    float a, b, c, d,r,l;
+    cout <<"Введите длины сторон трапеции (сначала основания, потом боковые)";
+    cin >> a >> b >> c >> d;
+    cout <<"Периметр трапеции:" << Perimetr(a, b, c, d)<< endl;
+    cout <<"Площадь трапеции:" << Perimetr(a, b, c, d)<< endl;
+    cout <<"Заведите радиус круга:" << endl;
+    cin >> r;
+    cout <<"Длина окружности:" << Perimetr(r) << endl;
+    cout <<"Площадь круга:" << square(r) << endl;
+    cout <<"Введите длину сторону квадрата:" << endl;
+    cin >> l;
+    cout <<"Периметр квадрата:" << Perimetr(l,l)<<endl;
+    cout <<"Площадь квадрата:" << square(l,l)<<endl;
+    
+}
