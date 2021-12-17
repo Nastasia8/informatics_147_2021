@@ -51,6 +51,8 @@ int main()
     firstStudent.Show();
     secondStudent.Show();
     thirdStudent.Show();
-
+    
+    // я не знала как сделать проверку вводимых данных, поэтому пока вот так
+    
     return 0;
 }
