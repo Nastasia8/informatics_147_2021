@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    float a, b, h, x, otr1, otr2;
+    float a, b, h, x, ot1, ot2;
     cout << "Enter a = ";
     cin >> a;
     cout << "Enter b = ";
@@ -20,14 +20,14 @@ int main()
         float f2 = (x+h)*(x+h) - sin(5*(x+h));
         if((((f1 > 0) && (f2 < 0)) || ((f1 < 0) && (f2 > 0)) ) && isTrue)
         {
-            otr1 = x;
-            otr2 = x+h;
+            ot1 = x;
+            ot2 = x+h;
             isTrue = false;
         }
 
         cout << x << "\t"<< f1 << endl;
     }
-    cout << otr1 <<"; "<< otr2 <<endl;
+    cout << ot1 <<"; "<< ot2 <<endl;
     return 0;
 }
 ///Не совсем поняла что нужно делать, смогла только до сюда дойти
