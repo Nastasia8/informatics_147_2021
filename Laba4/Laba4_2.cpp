@@ -38,7 +38,7 @@ int main()
 
     // y = ax + b, выражаем
 
-    double linb = (XiYi * Xi - Xi_2 * Yi) / (Xi * Xi - Xi_2 * length); // Александр Будусов помог
+    double linb = (XiYi * Xi - Xi_2 * Yi) / (Xi * Xi - Xi_2 * length); // Александр Бутусов помог
     double lina = (Yi - linb * length) / Xi;
 
     // Решение через метод Крамера
