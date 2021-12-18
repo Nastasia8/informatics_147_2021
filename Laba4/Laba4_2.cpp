@@ -5,6 +5,7 @@ using namespace std;
 
 int main()
 {
+    //вариант 5
     float x[8] = {1.2, 1.4, 1.6, 1.8, 2.0, 2.2, 2.4, 2.6};
     float y[8] = {2.325, 2.515, 2.638, 2.700, 2.696, 2.626, 2.491, 2.291};
     int length = sizeof(x)/sizeof(x[0]);
