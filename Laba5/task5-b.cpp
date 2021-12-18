@@ -34,49 +34,54 @@ int main (){
     }
 
     int Array_n[100], count = 0;
-    int d = 2;
+        int d = 2;
         while (d * d <= arr[0])
         {
             if (arr[0] % d == 0)
             {
                 Array_n[count] = d;
-                arr[0] = arr[0] / d;
+                arr[0] /= d;
+                ++count;
             }
             else if (d == 2)
                 d = 3;
             else
-                d = d + 2;
-            count++;
+                d += 2;
         }
+        Array_n[count] = arr[0];
 
-    int Array[100];
+
     count = 0;
-    d = 2;
     int Array_res[100];
     for (int i = 1; i < k; i++)
     {
+        int Array[100];
+        d = 2;
+        count = 0;
         while (d * d <= arr[i])
         {
             if (arr[i] % d == 0)
             {
                 Array[count] = d;
                 arr[i] = arr[i] / d;
+                ++count;
             }
             else if (d == 2)
                 d = 3;
             else
                 d = d + 2;
-            count++;
         }
-        for (int i = 0; i < 11; i++){ // нахождение общего множителя и заносим в одномерный массив
+        Array[count] = arr[i];
+
+        for (int i = 0; i < k; i++){ // нахождение общего множителя и заносим в одномерный массив
             if (Array[i] == Array_n[i]){
                 Array_res[i] = Array[i];
             }
         }
     }
-
     int result=1;
-        for(int i = 0; i < 2; i++){
+        for(int i = 0; i < 10; i++){
+            int Array[100];
             result *= NOD(Array_res[i], Array[i]);
         }
     cout << "НОД = "<<result<<endl;
