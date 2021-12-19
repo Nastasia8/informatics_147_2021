@@ -1,0 +1,112 @@
+#include <iostream>
+
+using namespace std;
+
+class Student{
+private:
+    string name;
+    string surname;
+    string patronymic;
+
+    int course;
+    int group;
+    int age;
+
+    bool checkAge(int check){
+        if(check < 0 || check > 100)
+            return false;
+        return true;
+    }
+
+    bool checkCourse(int check){
+        if(check < 1 || check > 5)
+            return false;
+        return true;
+    }
+
+    bool checkGroup(int check){
+        if(check < 5 || check > 20)
+            return false;
+        return true;
+    }
+
+
+public:
+
+    Student(){
+        name = " ";
+        surname = " ";
+        patronymic = " ";
+
+        course = NULL;
+        group = NULL;
+        age = NULL;
+    }
+
+    void setName(const string &name) {
+       this->name = name;
+    }
+
+    void setSurname(const string &surname) {
+        this->surname = surname;
+    }
+
+    void setPatronymic(const string &patronymic) {
+        this->patronymic = patronymic;
+    }
+
+    void setCourse(int course) {
+        if(checkCourse(course))
+            this->course = course;
+    }
+
+    void setGroup(int group) {
+        if(checkGroup(group))
+            this->group = group;
+    }
+
+    void setAge(int age) {
+        if(checkAge(age))
+            this->age = age;
+    }
+
+    void Show();
+
+};
+
+void Student::Show() {
+    cout << "name: " << name << endl << "surname: "<< surname << endl<< "patronymic: " << patronymic << endl;
+    cout << "course: " << course << endl << "group: " << group << endl << "age: " << age << endl << endl;
+}
+
+
+int main()
+{
+    Student st1;
+    st1.setAge(20);
+    st1.setCourse(2);
+    st1.setGroup(10);
+    st1.setName("Alex");
+    st1.setPatronymic("Junior");
+    st1.setSurname("Adams");
+
+    Student st2;
+    st2.setAge(22);
+    st2.setCourse(4);
+    st2.setGroup(6);
+    st2.setName("James");
+    st2.setPatronymic(" ");
+    st2.setSurname("Elliot");
+
+    Student st3;
+    st3.setAge(27);
+    st3.setCourse(1);
+    st3.setGroup(1);
+    st3.setName("Michael");
+    st3.setPatronymic("Junior");
+    st3.setSurname("Santos");
+
+    st1.Show();
+    st2.Show();
+    st3.Show();
+}
