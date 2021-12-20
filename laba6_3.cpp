@@ -22,7 +22,6 @@ int main(){
 		}
     }
     copy(result.begin(), result.end(), ostream_iterator<int>(cout, " "));
-		cout << endl;
-		result.unique(); 
+	
     return 0;
 }
