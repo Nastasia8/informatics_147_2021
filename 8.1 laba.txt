@@ -1,0 +1,63 @@
+#include <iostream>
+#include <cmath>
+#define G 9.8
+#define PI 3.14
+
+using namespace std;
+
+class Pendulum{
+public:
+    virtual double getCycleFreq() = 0;
+    virtual double getPeriod() = 0;
+    virtual void showType() = 0;
+};
+
+
+class MathPendulum: public Pendulum{
+private:
+    double l;
+public:
+    explicit MathPendulum(double l): l(l){}
+    double getCycleFreq() override{
+        return sqrt(G/l);
+    }
+
+    double getPeriod() override{
+        return 2 * PI * sqrt(l/G);
+    }
+
+    void showType() override{
+        cout << "Mathematical Pendulum" << endl;
+    }
+
+};
+
+class SpringPendulum: public Pendulum{
+private:
+    double m, k;
+public:
+    SpringPendulum(double m, double k): m(m), k(k){}
+
+    double getCycleFreq() override {
+        return sqrt(k/m);
+    }
+
+    double getPeriod() override {
+        return 2 * PI * sqrt(m/k);
+    }
+
+    void showType() override {
+        cout << "Spring Pendulum" << endl;
+    }
+};
+
+class PhysPendulum: public Pendulum{
+private:
+public:
+    //формулы не понял
+};
+
+int main(){
+    MathPendulum mathPendulum(3);
+}
+

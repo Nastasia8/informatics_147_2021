@@ -1,0 +1,109 @@
+#include <iostream>
+#include <cmath>
+#include <string>
+
+using namespace std;
+
+int tenToTwo(int number){
+    int size = 0;
+    int binary[100];
+    for(int i = 0; ; i++) {
+        binary[i] = number % 2;
+        number /= 2;
+        if (number % 2 == 0 && number / 2 < 2)
+        {
+            binary[i + 1] = number % 2;
+            binary[i + 2] = number / 2;
+            size+=3;
+            break;
+        }
+        size++;
+    }
+    int result = 0;
+    for(int i = 0; i < size; i++){
+        result += binary[i] * pow(10, i);
+    }
+    return result;
+}
+
+int tenToEight(int number){
+    int size = 0;
+    int eight[100];
+    for(int i = 0; ; i++) {
+        eight[i] = number % 8;
+        number /= 8;
+        if (number % 8 == 0 && number / 8 < 8)
+        {
+            eight[i + 1] = number % 8;
+            eight[i + 2] = number / 8;
+            size+=3;
+            break;
+        }
+        size++;
+    }
+    int result = 0;
+    for(int i = 0; i < size; i++){
+        result += eight[i] * pow(10, i);
+    }
+    return result;
+}
+
+void reverseStr(string& str)
+{
+    int n = str.length();
+    for (int i = 0; i < n / 2; i++)
+        swap(str[i], str[n - i - 1]);
+}
+
+
+string tenToSixteen(int number){
+    string sixteen;
+    for(int i = 0; ; i++) {
+        int tmp = number % 16;
+        switch(tmp){
+            case 10: {
+                sixteen += "A";
+                break;
+            }
+            case 11:{
+                sixteen += "B";
+                break;
+            }
+            case 12:{
+                sixteen += "C";
+                break;
+            }
+            case 13:{
+                sixteen += "D";
+                break;
+            }
+            case 14:{
+                sixteen += "E";
+                break;
+            }
+            case 15:{
+                sixteen += "F";
+                break;
+            }
+            default:{
+                sixteen += to_string(tmp);
+            }
+        }
+        number /= 16;
+        if (number % 16 == 0 && number / 16 < 16)
+        {
+//            sixteen += "0";
+//            sixteen += to_string(number / 16);
+            break;
+        }
+    }
+    reverseStr(sixteen);
+    return sixteen;
+}
+
+int main()
+{
+    //cout << tenToTwo(21);//10100
+//    cout << tenToEight(31);
+    cout << tenToSixteen(325);
+}
