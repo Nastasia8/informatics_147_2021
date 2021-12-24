@@ -5,16 +5,19 @@ using namespace std;
 
 double fact(int k)
 {
-    if(k < 0) // если пользователь ввел отрицательное число
-        return 0; // возвращаем ноль
-    if (k == 0) // если пользователь ввел ноль,
-        return 1; // возвращаем факториал от нуля 1
-    else // Во всех остальных случаях
-        return k * fact(k - 1); // делаем рекурсию.
+    if (k < 0) 
+        return 0; 
+    if (k == 0) 
+        return 1; 
+    else
+        return k * fact(k - 1);
 }
 
 float summa (int n, int k, float sum)
 {
+    cout << "Введите число элементов: ";
+    cin >> n;
+    k = 1;
     while (n > k)
     {
         sum += (-1)*k*((5-k)/fact(k));
@@ -26,11 +29,8 @@ float summa (int n, int k, float sum)
 
 int main ()
 {
-    int k = 1, n;
+    int n, k;
     float sum;
-    cout << "Введите число элементов: ";
-    cin >> n;
-    cout << endl;
     summa (n, k, sum);
     return 0;
 }
