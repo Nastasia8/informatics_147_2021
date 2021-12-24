@@ -72,5 +72,6 @@ int main()
     {
         delete[] massiv[i];
     }
+    delete[] massiv;
     return 0;
 }
