@@ -22,7 +22,7 @@ void foo_8(int x){
    
 }
 
-void foo_16(int x){
+/*void foo_16(int x){
     if ( x >= 16 ) {
       foo_8( x/16 );
    }
@@ -55,7 +55,7 @@ void foo_16(int x){
      break;  
 
    default:
-     cout << x % 16;
+     cout << x % 10;
      break;
    }
    
@@ -63,8 +63,13 @@ void foo_16(int x){
    return;
    
 }
+*/
 
-
+  void foo_16(int x){
+    
+   cout<<hex<<x;
+}
+  
 int main(){
     int x;
     cout<<"Enter number"<<endl;
