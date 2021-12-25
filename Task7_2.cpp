@@ -36,22 +36,22 @@ public:
     void WagePlusBonus() // вычисление премии и зарплаты
     {
         wage = hours * hourRate; // зарплата без премии
-        if (workExperience > 1 && workExperience <= 3) // вычисление премии
-		{
-			workBonus = wage * 0.03;
-		}
-		else if (workExperience > 3 && workExperience <= 6)
-		{
-			workBonus = wage * 0.05;
-		}
-		else if (workExperience > 6 && workExperience <= 9)
-		{
-			workBonus = wage * 0.07;
-		}
-		else if (workExperience >= 10)
-		{
-			workBonus = wage * 0.13;
-		}
+        if (workExperience >= 1 && workExperience < 3) // вычисление премии
+	{
+	    workBonus = wage * 0.03;
+	}
+	else if (workExperience >= 3 && workExperience < 6)
+	{
+	    workBonus = wage * 0.05;
+	}
+	else if (workExperience >= 6 && workExperience <= 9)
+	{
+	    workBonus = wage * 0.07;
+	}
+	else if (workExperience > 9)
+	{
+	    workBonus = wage * 0.13;
+	}
         else
         {
             workBonus = 0; // если стаж - 0 лет
@@ -76,8 +76,8 @@ public:
 int main()
 {
     // Локализация (отображение кириллицы в консоли).
-    SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
+    SetConsoleCP(1251);	
+    SetConsoleOutputCP(1251);
 
     // ввод данных пользователем и их проверка
     string name;
@@ -112,7 +112,7 @@ int main()
     cout << "Enter employee's home address: ";
     cin.clear();
     cin.sync(); // о господи, оно работает     // cin.sync() - убирает все непрочитанные символы из входного потока
-    //cin.ignore(); если использовать cin.ignore, то getline почему-то будет игнорировать первый символ
+    //cin.ignore(); // если использовать cin.ignore, то getline почему-то будет игнорировать первый символ
     getline(cin, homeAddress);
     
     cout << "Enter employee's phone number: ";
