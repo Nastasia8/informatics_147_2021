@@ -1,50 +1,42 @@
-﻿// Lab3.8.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+﻿// Lab4.05.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
 #include <iostream>
 #include <string>
 using namespace std;
 
+void FindMins(int** arr, int rows, int cols, int* _arMin)
+{
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < cols; j++)
+            _arMin[i] = (j == 0) ? arr[i][j] : (arr[i][j] < _arMin[i] ? arr[i][j] : _arMin[i]);
+}
+
 void main()
 {
+    srand(100);
     int rows, columns;
     cout << "Enter the number of rows and columns" << endl;
     cin >> rows >> columns;
 
     int** arrNumber = new int* [rows];
-    int allMin;
-    int* rowMax = new int [rows];
-    int* colMin = new int[columns];
     for (int i = 0; i < rows; i++)
     {
         arrNumber[i] = new int[columns];
         for (int j = 0; j < columns; j++)
         {
-            int n = rand();
-            allMin = (i == 0 && j == 0) ? n : (n < allMin ? n : allMin);
-            rowMax[i] = (j == 0) ? n : ((n > rowMax[i]) ? n : rowMax[i]);
-            colMin[j] = (i == 0) ? n : ((n < colMin[j]) ? n : colMin[j]);
-            arrNumber[i][j] = n;
-            cout << n << "\t";
+            arrNumber[i][j] = rand();
+            cout << arrNumber[i][j] << "\t";
         }
-
         cout << endl;
     }
-    cout << "The minimum element in a given array is " << allMin << endl;
-    cout << "Rows maximums:" << endl;
+    int* rowMin = new int[rows];
+    FindMins(arrNumber, rows, columns, rowMin);
+    cout << "Rows minimums:" << endl;
     for (int i = 0; i < rows; i++)
-    {
-        cout << rowMax[i] << endl;
-    }
-    cout << "Columns minimums:" << endl;
-    for (int j = 0; j < columns; j++)
-    {
-        cout << colMin[j] << "\t";
-    }
-    cout << endl;
+        cout << rowMin[i] << endl;
     delete[] arrNumber;
-    delete[] rowMax;
-    delete[] colMin;
+    delete[] rowMin;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

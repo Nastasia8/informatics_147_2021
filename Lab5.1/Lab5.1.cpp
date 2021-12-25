@@ -1,50 +1,24 @@
-﻿// Lab3.8.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+﻿// Lab5.1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
 #include <iostream>
-#include <string>
 using namespace std;
 
-void main()
+int Recurs(int n)
 {
-    int rows, columns;
-    cout << "Enter the number of rows and columns" << endl;
-    cin >> rows >> columns;
+    switch (n)
+    {
+        case 0: return 0;
+        case 1: return 3;
+        case 2: return 5;
+        default: return Recurs(n - 1) + Recurs(n - 2) + Recurs(n - 3); break;
+    }
+}
 
-    int** arrNumber = new int* [rows];
-    int allMin;
-    int* rowMax = new int [rows];
-    int* colMin = new int[columns];
-    for (int i = 0; i < rows; i++)
-    {
-        arrNumber[i] = new int[columns];
-        for (int j = 0; j < columns; j++)
-        {
-            int n = rand();
-            allMin = (i == 0 && j == 0) ? n : (n < allMin ? n : allMin);
-            rowMax[i] = (j == 0) ? n : ((n > rowMax[i]) ? n : rowMax[i]);
-            colMin[j] = (i == 0) ? n : ((n < colMin[j]) ? n : colMin[j]);
-            arrNumber[i][j] = n;
-            cout << n << "\t";
-        }
-
-        cout << endl;
-    }
-    cout << "The minimum element in a given array is " << allMin << endl;
-    cout << "Rows maximums:" << endl;
-    for (int i = 0; i < rows; i++)
-    {
-        cout << rowMax[i] << endl;
-    }
-    cout << "Columns minimums:" << endl;
-    for (int j = 0; j < columns; j++)
-    {
-        cout << colMin[j] << "\t";
-    }
-    cout << endl;
-    delete[] arrNumber;
-    delete[] rowMax;
-    delete[] colMin;
+int main()
+{
+    for (int i = 0; i < 15; i++)
+        cout << Recurs(i) << endl;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

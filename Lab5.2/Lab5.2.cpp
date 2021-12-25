@@ -1,50 +1,32 @@
-﻿// Lab3.8.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+﻿// Lab5.2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
 #include <iostream>
-#include <string>
 using namespace std;
+#include <string>;
 
-void main()
+string NumberToString(int n, int basis)
 {
-    int rows, columns;
-    cout << "Enter the number of rows and columns" << endl;
-    cin >> rows >> columns;
+	char alphabet[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
-    int** arrNumber = new int* [rows];
-    int allMin;
-    int* rowMax = new int [rows];
-    int* colMin = new int[columns];
-    for (int i = 0; i < rows; i++)
-    {
-        arrNumber[i] = new int[columns];
-        for (int j = 0; j < columns; j++)
-        {
-            int n = rand();
-            allMin = (i == 0 && j == 0) ? n : (n < allMin ? n : allMin);
-            rowMax[i] = (j == 0) ? n : ((n > rowMax[i]) ? n : rowMax[i]);
-            colMin[j] = (i == 0) ? n : ((n < colMin[j]) ? n : colMin[j]);
-            arrNumber[i][j] = n;
-            cout << n << "\t";
-        }
+	string s = "";
+	while (n > 0)
+	{
+		int x = n % basis;
+		s = alphabet[x] + s;
+		n /= basis;
+	}
+	return s;
+}
 
-        cout << endl;
-    }
-    cout << "The minimum element in a given array is " << allMin << endl;
-    cout << "Rows maximums:" << endl;
-    for (int i = 0; i < rows; i++)
-    {
-        cout << rowMax[i] << endl;
-    }
-    cout << "Columns minimums:" << endl;
-    for (int j = 0; j < columns; j++)
-    {
-        cout << colMin[j] << "\t";
-    }
-    cout << endl;
-    delete[] arrNumber;
-    delete[] rowMax;
-    delete[] colMin;
+int main()
+{
+	int n;
+    cout << "Enter a number: ";
+	cin >> n;
+	cout << "Bin: " << NumberToString(n, 2) << endl;
+	cout << "Oct: " << NumberToString(n, 8) << endl;
+	cout << "Hex: " << NumberToString(n, 16) << endl;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

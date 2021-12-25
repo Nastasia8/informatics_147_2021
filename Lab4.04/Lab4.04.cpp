@@ -1,50 +1,41 @@
-﻿// Lab3.8.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+﻿// Lab4.04.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
 #include <iostream>
 #include <string>
 using namespace std;
 
-void main()
+void fillArray(int* pArr, int size)
 {
-    int rows, columns;
-    cout << "Enter the number of rows and columns" << endl;
-    cin >> rows >> columns;
+	for (int i = 0; i < size; i++)
+		pArr[i] = rand();
+}
 
-    int** arrNumber = new int* [rows];
-    int allMin;
-    int* rowMax = new int [rows];
-    int* colMin = new int[columns];
-    for (int i = 0; i < rows; i++)
-    {
-        arrNumber[i] = new int[columns];
-        for (int j = 0; j < columns; j++)
-        {
-            int n = rand();
-            allMin = (i == 0 && j == 0) ? n : (n < allMin ? n : allMin);
-            rowMax[i] = (j == 0) ? n : ((n > rowMax[i]) ? n : rowMax[i]);
-            colMin[j] = (i == 0) ? n : ((n < colMin[j]) ? n : colMin[j]);
-            arrNumber[i][j] = n;
-            cout << n << "\t";
-        }
+void showArray(int* pArr, int size)
+{
+	for (int i = 0; i < size; i++)
+		cout << pArr[i] << endl;
+}
 
-        cout << endl;
-    }
-    cout << "The minimum element in a given array is " << allMin << endl;
-    cout << "Rows maximums:" << endl;
-    for (int i = 0; i < rows; i++)
-    {
-        cout << rowMax[i] << endl;
-    }
-    cout << "Columns minimums:" << endl;
-    for (int j = 0; j < columns; j++)
-    {
-        cout << colMin[j] << "\t";
-    }
-    cout << endl;
-    delete[] arrNumber;
-    delete[] rowMax;
-    delete[] colMin;
+int findMin(int* pArr, int size)
+{
+	int min = 0;
+	for (int i = 0; i < size; i++)
+		min = (i == 0) ? pArr[i] : ((pArr[i] < min) ? pArr[i] : min);
+	return min;
+}
+
+int main()
+{
+	srand(100);
+	int size;
+	cout << "Enter the size of the array" << endl;
+	cin >> size;
+	int* arr = new int[size];
+	fillArray(arr, size);
+	showArray(arr, size);
+	cout << "The minimum value in the array " << findMin(arr, size) << endl;
+	delete[] arr;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
