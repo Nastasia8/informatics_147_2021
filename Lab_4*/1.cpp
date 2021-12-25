@@ -10,7 +10,7 @@ int main()
     cout << "Enter b = ";
     cin >> b;
     cout << "Enter step = ";
-    cin >> s;
+    cin >> h;
     cout << endl;
     cout << "x\ty" <<endl;
     bool isTrue = true;
