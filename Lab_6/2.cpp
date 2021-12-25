@@ -11,25 +11,18 @@ int main ()
     cin >> n;
     cout << "Введите направление пирамиды: 1 - лево, 2 - право " << endl;
     cin >> k;
-    /*if (n<2)
+    for (int i=1; i <=n; i++)
     {
-        cout << "Введите высоту пирамиды корректно " << endl;
+        for (int j=1; j <=i; j++)
+            cout << line;
+        cout << endl;
     }
-    else if (k!=1 or k!=2)
+    cout << endl;
+    for (int i=1; i <=n; i++)
     {
-        cout << "Введите направление пирамиды корректно " << endl;
-    }*/
-  /// Проверка не проходит, выдаёт ошибку 
-  
-    if (k==2)
-        {
-            while (n>0)
-            {
-                cout << line << endl;
-                line += '*'; ///Символ не добавляется
-                n=n-1;
-            }
-        }
+        for (int j=n+1; j !=i; j--)
+            cout << line << endl;
+    }
     cout << line << endl;
     return 0;
 }
