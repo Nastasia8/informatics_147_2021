@@ -16,13 +16,14 @@ int NOD(int x, int y) {
 
 int main() {
     setlocale(LC_ALL, "ru");
-
-    int const SIZE;
+    int count;
 
     cout << "Введите кол-во чисел: " << endl;
-    cin >> SIZE;
-  
+    cin >> count;
+
+    int const SIZE = count;
     int arr[SIZE]{};
+
     cout << "Введите числа для нахождения НОД: " << endl;
     for (int i = 0; i < SIZE; i++) {
         cin >> arr[i];
