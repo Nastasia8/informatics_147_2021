@@ -1,0 +1,66 @@
+//sqrt(x) - cos(0.386 * x) = 0
+///32
+#include <iostream>
+#include <cmath>
+#define EPSILON 0.0001
+
+using namespace std;
+
+int main(){
+
+    ////////////////////FIRST STEP
+    double xValues[11];
+    double yValues[11];
+    {
+        int i = 0;
+        for (double x = 0; x < 5.5; x += 0.5) {
+            xValues[i] = i;
+            yValues[i] = sqrt(xValues[i]) - cos(0.386 * xValues[i]);
+            i++;
+        }
+    }
+    int aInd = 0, bInd = 0;
+    double a = 0, b = 0;
+    for(int i = 0; i < 10; i++){
+        if(yValues[i] < 0 && yValues[i + 1] > 0){
+            aInd = i;
+            bInd = i + 1;
+            break;
+        }
+        else if(yValues[i] > 0 && yValues[i + 1] < 0){
+            aInd = i;
+            bInd = i + 1;
+            break;
+        }
+    }
+    a = xValues[aInd];
+    b = xValues[bInd];
+    ///////////////////////SECOND STEP
+    double c = 0;
+    int steps = 1;
+    while(b - a > EPSILON){
+        c = (a + b)/2;
+        double fA = sqrt(a) - cos(0.386 * a);
+        double fC = sqrt(c) - cos(0.386 * c);
+        cout << "step #" << steps << endl;
+        cout << "a = " << a << "\tb = " << b << "\tc = " << c << "\tb - a = " << b - a << endl;
+        cout << "f(a) = " << fA <<"\tf(b) = " << fC << "\tf(a) * f(c) = " << fA * fC << endl;
+        if(fA * fC > 0){
+            a = a;
+            b = c;
+        }
+        else{
+            a = c;
+            b = b;
+        }
+        steps++;
+    }
+
+    cout << 'x' << "\tf(x)" << endl;
+    for(int i = 0;i < 11; i++){
+        cout << xValues[i] << '\t' << yValues[i] << endl;
+    }
+
+    cout << "answer is " << c << endl;
+    cout << "total steps needed " << steps;
+}
