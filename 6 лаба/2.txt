@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+void printTriangleFor(int height, char symbol){
+    for(int i = 0; i < height; i++){
+        for(int j = 0; j <=i; j++){
+            cout << symbol;
+        }
+        cout << endl;
+    }
+}
+
+void printTriangleWhile(int height, char symbol){
+    while(height > 0){
+        int tmp = height;
+        while(tmp > 0){
+            cout << symbol;
+            tmp--;
+        }
+        height--;
+        cout << endl;
+    }
+}
+
+int main(){
+    printTriangleFor(8, '*');
+    cout << endl << endl;
+    printTriangleWhile(10, '@');
+}

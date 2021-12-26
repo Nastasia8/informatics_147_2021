@@ -1,0 +1,125 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+class Employee{
+private:
+    string name;
+    string surname;
+    string patronymic;
+
+    int exp;
+    string work;
+    string address;
+    int number;
+    int hours;
+    int price;
+    
+
+    bool checkHours(int check){
+        if(check < 0)
+            return false;
+        return true;
+        
+    }
+
+    bool checkPrice(int check){
+        if(check < 0)
+            return false;
+        return true;
+
+    }
+    
+    bool checkExp(int check){
+        if(check < 0)
+            return false;
+        return true;
+        
+    }
+    
+    bool checkNumber(int check){
+        if(check < 0)
+            return false;
+        return true;
+        
+    }
+
+
+public:
+
+    Employee(const string &name, const string &surname, const string &patronymic, int exp, const string &work,
+             const string &address, int number, int hours, int price) {
+        this->name = name;
+        this->surname = surname;
+        this->patronymic = patronymic;
+        
+        if(checkExp(exp))
+            this->exp = exp;
+        else exp = 0;
+        
+        this->work = work;
+        this->address = address;
+        
+        if(checkNumber(number))
+            this->number = number;
+        else number = 0;
+        
+        if(checkHours(hours))
+            this->hours = hours;
+        else hours = 0;
+        
+        if(checkPrice(price))
+            this->price = price;
+        else price = 0;
+    }
+
+    void Show() {
+        cout << "name: " << name << endl << "surname: " << surname << endl << "patronymic: " << patronymic << endl;
+        cout << "exp: " << exp << endl << "address: " << address << endl << "number" << number << endl << "hours: " <<
+             hours << endl << "price: " << price << endl << "work: " << work << endl << endl;
+    }
+
+    double getSalary(){
+        return hours * price * getBonus();
+    }
+
+    double getBonus(){
+        if(exp > 1 && exp < 3){
+            return 1.03;
+        }
+        else if(exp > 3 && exp < 6){
+            return 1.05;
+        }
+        else if(exp > 6 && exp < 9){
+            return 1.07;
+        }
+        else if(exp > 10){
+            return 1.13;
+        }
+        else return 1;
+    }
+
+    void writeToFile(const string& path){
+        ofstream fout;
+        fout.open(path);
+
+        if(fout.is_open()) {
+            fout << "name: " << name << endl << "surname: " << surname << endl << "patronymic: " << patronymic << endl;
+            fout << "exp: " << exp << endl << "address: " << address << endl << "number" << number << endl << "hours: "
+                 <<
+                 hours << endl << "price: " << price  << endl << "work: " << work << endl << endl;
+        }
+        else
+            cout << "Invalid path";
+        fout.close();
+    }
+
+};
+
+
+int main() {
+    Employee emp1("James", "asd", "qwe", 5, "engineer", "NY", 123456789, 100, 5);
+    emp1.Show();
+    emp1.writeToFile("C:\\Users\\vkuzn\\Desktop\\test.txt");
+}

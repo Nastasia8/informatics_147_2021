@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int factorial(int number){
+    if(number == 0)
+        return 1;
+    int result = 1;
+    for(int i = 1; i <= number; i++){
+        result *= i;
+    }
+    return result;
+}
+
+int sum(int n){
+    int sum = 0;
+    for(int k = 1; k <= n; k++){
+        sum+=-1 * k * (5 - k)/(factorial(k));
+    }
+    return sum;
+}
+
+
+int main(){
+    cout << sum(3);
+}

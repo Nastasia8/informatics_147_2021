@@ -1,0 +1,100 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+class Massive{
+private:
+    int** arr;
+    int sizeX;
+    int sizeY;
+
+public:
+
+    Massive(int x, int y): sizeX(x), sizeY(y){
+        srand(time(0));
+        arr = new int*[y];
+        for(int i = 0; i < y; i++){
+            arr[i] = new int[x];
+            for(int j = 0; j < x; j++){
+                arr[i][j] = rand() % 50 - 25;
+            }
+        }
+    }
+
+    ~Massive(){
+        for(int i = 0; i < sizeX; i++){
+            delete[] arr[i];
+        }
+
+        delete[] arr;
+    }
+
+    void print(){
+        for(int i = 0; i < sizeY; i++){
+            for(int j = 0; j < sizeX; j++){
+                cout << arr[i][j] << ' ';
+            }
+            cout << endl;
+        }
+    }
+
+    int* task1(){
+        int* result = new int[sizeY];
+
+        for(int i = 0; i < sizeY; i++){
+            int sum = 0;
+            for(int j = 0;j < sizeX; j++){
+                if(j % 2 != 0){
+                    sum+=arr[i][j];
+                }
+            }
+            result[i] = sum;
+        }
+
+        return result;
+    }
+
+    int* task2(){
+        int* result = new int[sizeX];
+
+        for(int i = 0; i < sizeX; i++){
+            int max = arr[0][i];
+            for(int j = 0; j < sizeY; j++){
+                if(arr[j][i] > max && arr[j][j] % 2 != 0)
+                    max = arr[j][i];
+            }
+            result[i] = max;
+        }
+
+        return result;
+    };
+
+    double* task3(){
+        double* result = new double[sizeX];
+
+        for(int i = 0; i < sizeX; i++){
+            int sum = 0;
+            for(int j = 0; j < sizeY; j++){
+                sum+= arr[j][i];
+            }
+            result[i] = sum / sizeY;
+        }
+
+        return result;
+    }
+
+
+
+};
+
+
+int main() {
+    Massive array(3, 4);
+    array.print();
+
+    int* max = array.task1();
+
+    for(int i = 0; i < 3; i++)
+        cout << endl << max[i] << ' ';
+}

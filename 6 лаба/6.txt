@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+void print(const int height){
+    int* array = new int[height];
+    int* tmpArray = new int[height];
+    int size = 1;
+    array[0] = 1;
+    for(int i = 0; i < height; i++){
+        for(int j = 0; j < size; j++){
+            cout << array[j] << ' ';
+        }
+        if(i == height - 1)
+            break;
+        size++;
+        for(int j = 0;j < size; j++){
+            if(j == 0 || j == size - 1){
+                tmpArray[j] = 1;
+                continue;
+            }
+            tmpArray[j] = array[j - 1] + array[j];
+        }
+        for(int j = 0; j < size; j++){
+            array[j] = tmpArray[j];
+        }
+        cout << endl;
+    }
+    delete[] array;
+    delete[] tmpArray;
+}
+
+
+int main(){
+    print(10);
+}

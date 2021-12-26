@@ -1,0 +1,25 @@
+#include <iostream>
+#include <list>
+using namespace std;
+
+list<unsigned> Function(unsigned number){
+    list<unsigned> forReturn;
+    while(number!=1){
+        if(number % 2 == 0) {
+            number /= 2;
+            forReturn.push_back(number);
+        }
+        else{
+            number*=3;
+            number++;
+            number/=2;
+            forReturn.push_back(number);
+        }
+    }
+    return forReturn;
+}
+
+
+int main(){
+    list<unsigned> result = Function(5);
+}

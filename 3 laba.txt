@@ -1,0 +1,287 @@
+3 лаба. 
+1.#include <iostream>
+#include <cmath>
+using namespace std;
+
+float resolve(float a, float b, int oper)
+{
+    if ((b==0)&&(oper==3)) {
+        cout << "Error";
+        return 0;
+    }
+    switch(oper)
+    {
+        case 0:return a+b;
+        case 1:return a-b;
+        case 2:return a*b;
+        case 3:return a/b;
+        case 4:return pow(a,b);
+        default:
+            cout << "Error operation";
+            return 0;
+    }
+}
+int main()
+{
+    float a, b;
+    int oper;
+    setlocale(LC_ALL,"Rus");
+    cout << "Введите числа\n";
+    cin >> a >>b;
+    cout <<"Введите операцию\n";
+    cout <<"[0] сложение\n";
+    cout <<"[1] вычитание\n";
+    cout <<"[2] произведение\n";
+    cout <<"[3] деление\n";
+    cout <<"[4] степень\n";
+    cin >> oper;
+    cout << resolve(a, b, oper);
+    
+}
+2.#include <iostream>
+#include <stdio.h>
+#include <random>
+
+using namespace std;
+
+double getValue(double P, double n, double m){
+    double I = 0.15;
+    double S = P;
+    if(m == 2 || m == 4){
+        double a = P*(1 + (((I + 1)/100)/(m/12)));
+        double b = m/12*n;
+        S += pow(P*(1 + (((I + 1)/100)/(m/12))), m/12*n);
+    }
+    else if(m == 1){
+        for(int i = 0; i < n; i++){
+            S = S * (I + 1);
+        }
+    }
+
+    return S;
+}
+
+int main() {
+    double res = getValue(100000, 2, 2);
+    cout << res;
+    //printf("%f", res);
+}
+3.#include <iostream>
+#include <cmath>
+using namespace std;
+
+double sum (int k){
+    double sum = 0;
+    for(double i = 1; i <= k; i++){
+        sum += 2/((2 * i + 1) * (2 * i + 3));
+    }
+    return sum;
+}
+
+double mult(int k){
+    double mult = 1;
+    for(double i = 1; i <= k; i++){
+        mult *= pow(-1, i - 1) + i;
+    }
+
+    return mult;
+}
+
+
+int main() {
+
+    double result = mult(2);
+    cout << result;
+
+}
+4.#include <iostream>
+
+using namespace std;
+
+int resultFor(int start, int end){
+    int sum = 0;
+    for(int i = start; i <= end; i++){
+        if(i % 2 == 0){
+            sum += i;
+        }
+    }
+    return sum;
+}
+
+int resultWhile(int start, int end){
+    int i = start, sum = 0;
+
+    while(i <= end){
+        if(i % 2 == 0){
+            sum += i;
+        }
+        i++;
+    }
+
+    return sum;
+}
+
+
+int main() {
+
+    int s = resultWhile(3, 6);
+    cout << s;
+
+}
+5.#include <iostream>
+#include <cmath>
+using namespace std;
+
+void task(double x, double y, double z, double& f1, double& f2){
+    double D = y * y - 4 * x * z;
+    if(D < 0){
+        f1 = NULL;
+        f2 = NULL;
+    }
+    else if(D == 0){
+        f1 = -1 * (y/ (2 * x));
+        f2 = NULL;
+    }
+    else{
+        f1 = (-1 * y + sqrt(D))/ (2 * x);
+        f2 = (-1 * y - sqrt(D))/ (2 * x);
+    }
+}
+
+
+int main() {
+
+    double f1 = 0;
+    double f2 = 0;
+
+    task(1,4,4, f1, f2);
+
+}
+6.#include <iostream>
+#include <cmath>
+using namespace std;
+
+int mult(int value){
+    int arr[7];
+    for(int i = value, j = 0; j < 7; j++){
+        int tmp = i % 10;
+        i /= 10;
+        arr[j] = tmp;
+    }
+    if(arr[5] == 0)
+        return NULL;
+    if(arr[6] != 0){
+        return NULL;
+    }
+    int result = 1;
+    for(int i = 0; i < 6; i++){
+        result*=arr[i];
+    }
+    return result;
+}
+
+
+int main() {
+
+    int res = mult(1111222);
+    cout << res;
+
+}
+7.#include <iostream>
+
+using namespace std;
+
+void print(int height, int width, char symbol){
+    for(int i = 0; i < height; i++){
+        for(int j = 0; j < width; j++){
+            if(i == 0 || i == height - 1){
+                cout << symbol;
+            }
+            else{
+                if (j == 0 || j == width - 1) {
+                    cout << symbol;
+                } else {
+                    cout << ' ';
+                }
+            }
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    int h;
+    int w;
+    char s;
+    cin >> h;
+    cin >> w;
+    cin >> s;
+    print(h,w,s);
+}
+8.#include <iostream>
+
+using namespace std;
+int main() {
+
+    srand(time(0));
+
+
+    int x,y;
+    cin >> x >> y;
+    int* array = new int[x * y];
+
+
+    for(int i = 0; i < y; i++){
+        for(int j = 0; j < x; j++){
+            *(array + i * x + j) = rand() % 100 + 1;
+        }
+    }
+
+
+    for(int i = 0; i < y; i++){
+        for(int j = 0; j < x; j++){
+            cout << *(array + i * x + j) << ' ';
+        }
+        cout << endl;
+    }
+
+    int min = *array;
+    for(int i = 0; i < y; i++){
+        for(int j = 0; j < x; j++){
+            if(min > *(array + i * x + j))
+                min = *(array + i * x + j);
+        }
+    }
+    cout << min << endl;
+
+
+    int* maxElems = new int[y];
+    for(int i = 0; i < y; i++){
+        int max = *(array + i * x);
+        for(int j = 0; j < x; j++){
+            if(max < *(array + i * x + j))
+                max = *(array + i * x + j);
+        }
+        maxElems[i] = max;
+    }
+    for(int i = 0; i < y; i++){
+        cout << "Max element in row num " << i << " is " << maxElems[i] << endl;
+    }
+    delete[] maxElems;
+
+    int* minElems = new int[x];
+    for(int i = 0; i < x;i++){
+        int min = *(array + i);
+        for(int j = 0; j < y; j++){
+            if(min > *(array + j * x + i))
+                min = *(array + j * x + i);
+        }
+        minElems[i] = min;
+    }
+    for(int i = 0; i < x; i++){
+        cout << "Min element in column num " << i << " is " << minElems[i] << endl;
+    }
+    delete[] minElems;
+
+    delete[] array;
+}
